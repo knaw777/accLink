@@ -1,0 +1,28 @@
+.landingGrid {
+    display: grid;
+    padding: 15px;
+    grid-template-columns: 32% 32% 32%;
+    grid-gap: 15px;
+}
+
+.moduleLink:hover {
+    box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.moduleLink {
+    height: 80px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.disableItem {
+    background-color: rgba(0,0,0,0.09);
+    height: 80px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.disableItem:hover {
+    cursor: not-allowed !important;
+}

@@ -1,0 +1,54 @@
+<h1 style="padding:20px">Welcome to Accredilink</h1>
+<div class="center">
+
+    <mat-card style="width:20%;">
+            <h3 style="text-align:center" *ngIf="!showForgotPasswordField">Login</h3>
+            <h3 style="text-align:center" *ngIf="showForgotPasswordField">Forgot Password</h3>
+            <form [formGroup]="loginForm">
+            
+                                    <mat-form-field class="example-full-width" *ngIf="!showForgotPasswordField">
+                                            <input matInput placeholder="UserName" formControlName="userName">
+                                            <mat-error *ngIf="f.userName.errors">
+                                                    <mat-error *ngIf="f.userName.errors.required">
+                                                           UserName is required
+                                                    </mat-error>
+                                            </mat-error>
+                                    </mat-form-field>
+                  
+                                    <mat-form-field class="example-full-width"  *ngIf="!showForgotPasswordField">
+                                            <input matInput placeholder="Password" [type]="toggleType" autocomplete="new-password" formControlName="password">
+                                            <mat-icon style="cursor:pointer" matSuffix (click)="showPassword()">remove_red_eye</mat-icon>
+                                            <mat-error *ngIf="f.password.errors">
+                                                    <mat-error *ngIf="f.password.errors.required">
+                                                           Password is required
+                                                    </mat-error>
+                                            </mat-error>
+                                    </mat-form-field>
+
+                    
+                                                <a (click)="forgotPassword()" style="cursor: pointer;" *ngIf="!showForgotPasswordField">Forgot Password?</a>
+                                                <div *ngIf="showForgotPasswordField">
+                                                        <mat-form-field class="example-full-width">
+                                                                <input matInput placeholder="Email" formControlName="email">
+                                                                <mat-error *ngIf="f.email.errors" class="invalid-feedback">
+                                                                        <mat-error *ngIf="f.email.errors.required">Email is required</mat-error>
+                                                                        <mat-error *ngIf="f.email.errors.email">Email must be a valid email address</mat-error>
+                                                                </mat-error>
+                                                        </mat-form-field>
+                                                        <div style="display: flex;justify-content: space-around;text-align: center;margin-top:15px">
+                                                                <button mat-raised-button color="primary" [disabled]='f.email.errors' 
+                                                                (click)="sendEmail()">Send Email</button>
+                                                                <button mat-raised-button color="primary" 
+                                                                (click)="cancelFromForgotPassword()">Cancel</button>  
+                                                        </div>
+                                                </div>
+
+
+                    <div style="text-align: center;margin-top:15px">
+                            <button mat-raised-button color="primary" [disabled]='f.userName.errors || f.password.errors'  *ngIf="!showForgotPasswordField"
+                                    (click)="loginUser()">Login</button>
+                    </div>
+
+            </form>
+    </mat-card>
+</div>

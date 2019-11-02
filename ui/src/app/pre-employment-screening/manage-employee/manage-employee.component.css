@@ -1,0 +1,27 @@
+.employeeDetail {
+    margin: 5px;
+    width:150px;
+}
+mat-grid-tile {
+    background: lightblue;
+  }
+
+  .oneColumn {
+      display: grid;
+      grid-template-columns: 100%;
+  }
+
+  .twoColumns {
+      display: grid;
+      grid-template-columns: 60% 40%;
+  }
+
+  .fullWidth{
+    /* width: 80%;
+    display: flex;
+    justify-content: center; */
+  }
+
+  .reducedWidth {
+   /*  width: 60%; */
+  }

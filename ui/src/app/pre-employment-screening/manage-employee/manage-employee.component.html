@@ -1,0 +1,43 @@
+<h3>Manage Employees</h3>
+
+
+<!-- <mat-grid-list cols="{{isEdit ? 2 : 1}}" rowHeight="600">
+        <mat-grid-tile>
+                <div style="height: 400px;">
+
+                        <mat-form-field style="margin-left:15px">
+                                    <input matInput placeholder="Search Employee" [(ngModel)]="employeeQuery" (keyup)="searchEmployee()">
+                            </mat-form-field>
+                            <mat-card style="display: flex;" >
+                                    <div class="employeeDetail">First Name</div><div  class="employeeDetail">Last Name</div><div  class="employeeDetail">SSN</div><div  class="employeeDetail">Email</div>
+                                 </mat-card>
+                            <mat-card style="display: flex;" *ngFor="let employee of employees">
+                               <div class="employeeDetail">{{employee.firstName}}</div><div  class="employeeDetail">{{employee.lastName}}</div><div  class="employeeDetail">{{employee.ssn}}</div><div  class="employeeDetail">{{employee.email}}</div><div style="margin-left:20px" (click)="editEmployee(employee)"> <mat-icon style="cursor:pointer" matSuffix >edit</mat-icon></div><div style="margin-left:20px" (click)="deleteEmployee(employee)"><mat-icon style="cursor:pointer" matSuffix >delete</mat-icon></div>
+                            </mat-card>
+                    
+                    </div>
+                    
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="isEdit">
+                {{currentEmployee | json}}
+                <button (click)="isEdit = false">Stop</button>
+        </mat-grid-tile>
+      </mat-grid-list> -->
+
+      <div [ngClass]="{'oneColumn':!isEdit, 'twoColumns': isEdit}">
+            <div>
+            <mat-form-field style="margin-left:15px">
+                        <input matInput placeholder="Search Employee" [(ngModel)]="employeeQuery" (keyup)="searchEmployee()">
+                </mat-form-field>
+                <mat-card style="display: flex;" [ngClass]="{'fullWidth': !isEdit, 'reducedWith': isEdit}" >
+                        <div class="employeeDetail">First Name</div><div  class="employeeDetail">Last Name</div><div  class="employeeDetail">SSN</div><div  class="employeeDetail">Email</div>
+                     </mat-card>
+                <mat-card style="display: flex;" [ngClass]="{'fullWidth': !isEdit, 'reducedWith': isEdit}" *ngFor="let employee of employees">
+                   <div class="employeeDetail">{{employee.firstName}}</div><div  class="employeeDetail">{{employee.lastName}}</div><div  class="employeeDetail">{{employee.ssn}}</div><div  class="employeeDetail">{{employee.email}}</div><div style="margin-left:20px" (click)="editEmployee(employee)"> <mat-icon style="cursor:pointer" matSuffix >edit</mat-icon></div><div style="margin-left:20px" (click)="deleteEmployee(employee)"><mat-icon style="cursor:pointer" matSuffix >delete</mat-icon></div>
+                </mat-card>
+        </div>
+        <div *ngIf="isEdit">
+            {{currentEmployee | json}} 
+            <button (click)="isEdit = false">Stop</button>
+        </div>
+        </div>

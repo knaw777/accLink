@@ -1,0 +1,76 @@
+<div class="center">
+
+        <mat-card style="width:40%;">
+                <h3 style="text-align:center">Registration</h3>
+                <form [formGroup]="registerForm">
+                      
+
+                                        <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="First Name" formControlName="firstName">
+                                                <mat-error *ngIf="f.firstName.errors">
+                                                        <mat-error *ngIf="f.firstName.errors.required">
+                                                                First Name is required
+                                                        </mat-error>
+                                                </mat-error>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Middle Name" formControlName="middleName">
+                                                        <mat-error *ngIf="f.middleName.errors">
+                                                                <mat-error *ngIf="f.middleName.errors.required">
+                                                                        Middle Name is required
+                                                                </mat-error>
+                                                        </mat-error>
+                                                </mat-form-field>
+        
+                             
+                                        <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Last Name" formControlName="lastName">
+                                                <mat-error *ngIf="f.lastName.errors">
+                                                        <mat-error *ngIf="f.lastName.errors.required">
+                                                                Last Name is required
+                                                        </mat-error>
+                                                </mat-error>
+                                        </mat-form-field>
+
+
+                        <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Email" formControlName="email">
+                                <mat-error *ngIf="f.email.errors" class="invalid-feedback">
+                                        <mat-error *ngIf="f.email.errors.required">Email is required</mat-error>
+                                        <mat-error *ngIf="f.email.errors.email">Email must be a valid email address</mat-error>
+                                </mat-error>
+                        </mat-form-field>
+
+                        <div style="display:grid;grid-template-columns:45% 10% 45%;">
+                                <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="SSN" formControlName="ssn">
+                                        <mat-error *ngIf="f.ssn.errors">
+                                                <mat-error *ngIf="f.ssn.errors.required">
+                                                        SSN is required
+                                                </mat-error>
+                                        </mat-error>
+                                </mat-form-field>
+                                <div></div>
+                                <mat-form-field class="example-full-width">
+                                        <input name="dob" matInput [matDatepicker]="picker3" placeholder="Date of Birth"
+                                                formControlName="dob">
+                                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker3></mat-datepicker>
+                                        <mat-error *ngIf="f.dob.errors">
+                                                <mat-error *ngIf="f.dob.errors.required">
+                                                        Date of Birth is required
+                                                </mat-error>
+                                        </mat-error>
+                                </mat-form-field>
+                        </div>
+
+
+                        <div style="text-align: center;margin-top:15px">
+                                <button mat-raised-button color="primary" [disabled]='this.registerForm.invalid'
+                                        (click)="registerUser()">Register</button>
+                        </div>
+
+                </form>
+        </mat-card>
+</div>
